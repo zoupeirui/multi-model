@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  multi_modal_system:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: dog_fusion_container
+    network_mode: host
+    ipc: host
+    pid: host
+    volumes:
+      - ../src:/robot_ws/src
+    privileged: true
+    tty: true
+    stdin_open: true
